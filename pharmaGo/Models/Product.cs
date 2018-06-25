@@ -16,6 +16,8 @@ namespace pharmaGo.Models
 
 		public int AvailableAmount { get; set; }
 
+		public string Image { get; set; }
+
         public Product()
         {
         }
