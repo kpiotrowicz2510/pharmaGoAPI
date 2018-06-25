@@ -17,7 +17,7 @@ kwas fumarowy
 glutaminian sodu',10,'https://aptekaodpokolen.pl/pol_pl_KC-2-2KC-pomaga-w-walce-z-objawami-kaca-12-tabletek-26034_1.jpg');
 INSERT INTO `Products` VALUES (3,3.99,'BoboVita, Kleik ryżowy','Po 4 miesiacu. 160g.
 Kleik ryżowy stanowi pełnowartościowy, łagodny ryżowo-mleczny posiłek.',8,'https://media.nutriciastatic.com/uploads/media/59a002eb3415c/kleik-ryzowy.png');
-INSERT INTO `Products` VALUES (4,29.9,'Olimp, Vita-Min Multiple Sport','60 kapsulek.
+INSERT INTO `Products` VALUES (4,29.9,'Olimp, Vita-Min','60 kapsulek.
 Vita-Min Multiple Sport to dwufazowy witaminowo-mineralny suplement diety dla osób dorosłych, w szczególności sportowców.',3,'https://sklep.bodymania.pl/img/products/15/56/1.jpg');
 INSERT INTO `Products` VALUES (5,11.9,'Claritine Allergy','Wskazania: leczenie objawów związanych z alergią.',32,'https://aptekapomocna24.pl/data/gfx/pictures/medium/8/2/828_1.jpg');
 INSERT INTO `Products` VALUES (6,7.9,'4 Lacti Baby','4 Lacti BABY to suplement diety w postaci doustnej zawiesiny, zawierający probiotyczny szczep Lactobacillus rhamnosus GG (ATCC 53103).',6,'https://www.e-medest.pl/produkty_zdjecia/151130143324591.jpg');
