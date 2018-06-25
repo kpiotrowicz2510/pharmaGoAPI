@@ -32,5 +32,17 @@ namespace pharmaGo.Controllers
 				return ctx.Orders.FirstOrDefault(p => p.ID == id);
             }
         }
+
+		[HttpPost]
+        [Route("")]
+        public bool AddOrder(Order order)
+        {
+            using (var ctx = new DBContext())
+            {
+				ctx.Orders.Add(order);
+				ctx.SaveChanges();
+				return true;
+            }
+        }
     }
 }

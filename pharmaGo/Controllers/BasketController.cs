@@ -33,5 +33,16 @@ namespace pharmaGo.Controllers
 				return true;
             }
 		}
+
+		[HttpDelete]
+		[Route("")]
+		public bool DeleteBasket(Basket basket){
+			using (var ctx = new DBContext())
+			{
+				ctx.Baskets.Remove(basket);
+				ctx.SaveChanges();
+				return true;
+			}
+		}
     }
 }
