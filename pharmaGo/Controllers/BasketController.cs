@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using pharmaGo.Config;
 using pharmaGo.Models;
 
@@ -18,17 +19,21 @@ namespace pharmaGo.Controllers
 		[Route("")]
 		public Basket Get(){
 			using(var ctx = new DBContext()){
-				return ctx.Baskets.FirstOrDefault();
+				return ctx.Baskets.Include(p => p.Items).FirstOrDefault();
 			}
 		}
 
 		[HttpPost]
         [Route("products")]
-		public bool AddProductToBasket(OrderItem item){
+		public bool AddProductToBasket([FromBody] OrderItem item){
 			using (var ctx = new DBContext())
             {
-                var basket = ctx.Baskets.FirstOrDefault();
+				var basket = ctx.Baskets.Include(p=>p.Items).FirstOrDefault(b=>b.ID==1);
+				var x = basket.Items.ToList();
 				basket.Items.Add(item);
+				basket.TotalItems += item.Amount;
+				var product = ctx.Products.First(p => p.ID == item.IdProduct);
+				basket.TotalValue += product.Price * item.Amount;
 				ctx.SaveChanges();
 				return true;
             }
@@ -36,7 +41,7 @@ namespace pharmaGo.Controllers
 
 		[HttpDelete]
 		[Route("")]
-		public bool DeleteBasket(Basket basket){
+		public bool DeleteBasket([FromBody] Basket basket){
 			using (var ctx = new DBContext())
 			{
 				ctx.Baskets.Remove(basket);

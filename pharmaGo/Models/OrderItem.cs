@@ -15,6 +15,8 @@ namespace pharmaGo.Models
 			set;
 		}
 
+		public int Amount { get; set; }
+
 		public OrderItem()
         {
         }

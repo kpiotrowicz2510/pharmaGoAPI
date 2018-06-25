@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using pharmaGo.Config;
 using pharmaGo.Models;
 
 namespace pharmaGo.Controllers
 {
+	[Route("api/orders")]
     public class OrdersController
     {
         public OrdersController()
@@ -19,7 +21,7 @@ namespace pharmaGo.Controllers
         {
             using (var ctx = new DBContext())
             {
-				return ctx.Orders.ToList();
+				return ctx.Orders.Include(o => o.Items).ToList();
             }
         }
 
@@ -29,13 +31,13 @@ namespace pharmaGo.Controllers
         {
             using (var ctx = new DBContext())
             {
-				return ctx.Orders.FirstOrDefault(p => p.ID == id);
+				return ctx.Orders.Include(o=>o.Items).FirstOrDefault(p => p.ID == id);
             }
         }
 
 		[HttpPost]
         [Route("")]
-        public bool AddOrder(Order order)
+		public bool AddOrder([FromBody] Order order)
         {
             using (var ctx = new DBContext())
             {
