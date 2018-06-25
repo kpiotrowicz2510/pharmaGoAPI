@@ -3,7 +3,7 @@ namespace pharmaGo.Models
 {
     public class Product
     {
-		public int Id {
+		public int ID {
 		    get;
 			set;
 		}

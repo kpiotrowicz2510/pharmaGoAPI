@@ -4,7 +4,7 @@ namespace pharmaGo.Models
     public class OrderItem
     {
 
-        public int Id {
+        public int ID {
             get;
 			set;
         }

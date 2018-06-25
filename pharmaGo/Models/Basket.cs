@@ -5,7 +5,7 @@ namespace pharmaGo.Models
 {
     public class Basket
     {
-		public int Id
+		public int ID
 		{
 			get;
 			set;
