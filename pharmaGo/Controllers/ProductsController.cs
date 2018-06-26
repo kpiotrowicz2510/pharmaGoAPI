@@ -25,10 +25,10 @@ namespace pharmaGo.Controllers
 			using (var ctx = new DBContext())
             {
 				var product = ctx.Products.First(p => p.ID == id);
-				var r = new Random();
-				var discountPercent = r.Next(1, 30);
-				product.PriceDiscount = product.Price * (1 - (discountPercent/100));
-				product.PriceDiscountPercent = discountPercent;
+				//var r = new Random();
+				//var discountPercent = r.Next(1, 30);
+				//product.PriceDiscount = product.Price * (1 - (discountPercent/100));
+				//product.PriceDiscountPercent = discountPercent;
 				return product;
             }
 		}
