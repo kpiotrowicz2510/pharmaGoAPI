@@ -46,6 +46,8 @@ namespace pharmaGo.Controllers
             {
 				var basket = ctx.Baskets.Include(p => p.Items).FirstOrDefault(b => b.ID == 1);
 				basket.Items.RemoveAll(p=>p.Amount > 0);
+				basket.TotalItems = 0;
+				basket.TotalValue = 0;
                 ctx.SaveChanges();
                 return true;
             }
