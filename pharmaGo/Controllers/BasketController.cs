@@ -45,7 +45,7 @@ namespace pharmaGo.Controllers
             using (var ctx = new DBContext())
             {
 				var basket = ctx.Baskets.Include(p => p.Items).FirstOrDefault(b => b.ID == 1);
-				basket.Items.Clear();
+				basket.Items.RemoveAll(p=>p.Amount > 0);
                 ctx.SaveChanges();
                 return true;
             }
